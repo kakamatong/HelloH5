@@ -12,21 +12,10 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        // foo: {
-        //     // ATTRIBUTES:
-        //     default: null,        // The default value will be used only when the component attaching
-        //                           // to a node for the first time
-        //     type: cc.SpriteFrame, // optional, default is typeof default
-        //     serializable: true,   // optional, default is true
-        // },
-        // bar: {
-        //     get () {
-        //         return this._bar;
-        //     },
-        //     set (value) {
-        //         this._bar = value;
-        //     }
-        // },
+        audio: {
+            type: cc.AudioClip,
+            default: null
+        }
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -35,7 +24,20 @@ cc.Class({
 
     start () {
         cc.log("-------------------test---------------------")
+        // cc.loader.loadRes("sound/music_01.mp3", cc.AudioClip,function(err, clip){
+        //     var soundid = cc.audioEngine.playMusic(clip,true)
+        // })
+        
+        
     },
+
+    onLoad() {
+        
+    },
+
+    play(){
+        var id = cc.audioEngine.play(this.audio, true, 1);
+    }
 
     // update (dt) {},
 });
