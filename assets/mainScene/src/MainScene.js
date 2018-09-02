@@ -15,28 +15,60 @@ cc.Class({
         audio: {
             type: cc.AudioClip,
             default: null
-        }
+        },
+        musicState: false,
+        musicID: null,
     },
 
     // LIFE-CYCLE CALLBACKS:
 
     // onLoad () {},
-
+    
     start () {
         cc.log("-------------------test---------------------")
         // cc.loader.loadRes("sound/music_01.mp3", cc.AudioClip,function(err, clip){
         //     var soundid = cc.audioEngine.playMusic(clip,true)
         // })
         
-        
+        this.musicID = cc.audioEngine.play(this.audio, true, 1)
+        this.musicState = true
+        // cc.loader.loadRes("sound/musicbg.mp3", cc.AudioClip, function(err, clip){
+        //     var soundid = cc.audioEngine.play(clip,true, 1)
+        //     print("--------------------adfa")
+        // })
     },
 
     onLoad() {
+        // cc.loader.loadRes("sound/musicbg.mp3", cc.AudioClip,function(err, clip){
+        //     var soundid = cc.audioEngine.playMusic(clip,true)
+        //     //this.audio = clip
+        // })
+    },
+    
+    play(){
+        cc.log(this.musicState, this.musicID)
+        if (!this.musicState) {
+            cc.log("play")
+            this.musicID = cc.audioEngine.play(this.audio, true, 1)
+            this.musicState = true
+        }
+        else{
+            if (this.musicID != null) {
+                cc.log("stop")
+                cc.audioEngine.stop(this.musicID)
+                this.musicState = false
+            }
+        }
         
+        cc.log("----------------------onBtnPlay")
     },
 
-    play(){
-        var id = cc.audioEngine.play(this.audio, true, 1);
+    changeBg(){
+        cc.log("---------------onBtnbg")
+        var bg = this.getComponent("bg")
+        if(bg){
+            cc.log("--------------bg")
+        }
     }
 
     // update (dt) {},
