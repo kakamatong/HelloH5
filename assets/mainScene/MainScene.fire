@@ -41,8 +41,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.31600077461320203,
-      "y": 0.31600077461320203,
+      "x": 0.42421875,
+      "y": 0.42421875,
       "z": 1
     },
     "_quat": {
@@ -469,9 +469,11 @@
   },
   {
     "__type__": "cc.ClickEvent",
-    "target": null,
-    "component": "",
-    "handler": "",
+    "target": {
+      "__id__": 3
+    },
+    "component": "MainScene",
+    "handler": "changeBg",
     "customEventData": ""
   },
   {
@@ -664,6 +666,12 @@
     "_enabled": true,
     "audio": {
       "__uuid__": "69b9a493-85e2-48aa-b25f-2b539f3d1adc"
+    },
+    "sprite": {
+      "__id__": 7
+    },
+    "speframe1": {
+      "__uuid__": "6c984edc-c859-42d2-b1f3-c95461433ce8"
     },
     "musicState": false,
     "musicID": null,

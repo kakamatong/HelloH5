@@ -16,6 +16,14 @@ cc.Class({
             type: cc.AudioClip,
             default: null
         },
+        sprite: {
+            type: cc.Sprite,
+            default: null
+        },
+        speframe1: {
+            type: cc.SpriteFrame,
+            default: null
+        },
         musicState: false,
         musicID: null,
     },
@@ -65,9 +73,10 @@ cc.Class({
 
     changeBg(){
         cc.log("---------------onBtnbg")
-        var bg = this.getComponent("bg")
-        if(bg){
-            cc.log("--------------bg")
+        //this.sprite.
+        if(this.sprite){
+            this.sprite.spriteFrame = this.speframe1
+            cc.log("--------------bg",this.sprite.name)
         }
     }
 
